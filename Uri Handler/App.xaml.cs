@@ -102,5 +102,19 @@ namespace Uri_Handler
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs eventArgs = args as ProtocolActivatedEventArgs;
+                // TODO: Handle URI activation
+                // The received URI is eventArgs.Uri.AbsoluteUri
+                Frame rootFrame = new Frame();
+                rootFrame.Navigate(typeof(MainPage), null);
+                MainPage.setMessage(eventArgs.Uri.AbsolutePath);
+            }
+        }
+
     }
 }

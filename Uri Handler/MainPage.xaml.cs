@@ -22,9 +22,18 @@ namespace Uri_Handler
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        public static void setMessage(string message)
+        {
+            sMessageTb.Text = message;
+        }
+
+        private static TextBlock sMessageTb;
+
         public MainPage()
         {
             this.InitializeComponent();
+            sMessageTb = messageTb;
         }
     }
 }
